@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="48" tileheight="48">
+ <tileset firstgid="1" name="Outside_A2" tilewidth="48" tileheight="48">
+  <image source="../img/Outside_A2.png" width="768" height="576"/>
+ </tileset>
+ <tileset firstgid="193" name="Outside_A4" tilewidth="48" tileheight="48">
+  <image source="../img/Outside_A4.png" width="768" height="720"/>
+ </tileset>
+ <layer name="块层 1" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYBzFo3gUj+IhgAHGRgEt
+  </data>
+ </layer>
+</map>
