@@ -19,6 +19,9 @@
     <Filter Include="src\场景\游戏场景\地图层">
       <UniqueIdentifier>{f95b0a26-e0fc-4455-b514-3f9f52689601}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\场景\游戏场景\角色">
+      <UniqueIdentifier>{8e100133-e173-4035-a498-cc937956bc91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="..\Classes\MapLayer.cpp">
       <Filter>src\场景\游戏场景\地图层</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Hero.cpp">
+      <Filter>src\场景\游戏场景\角色</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -52,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\MapLayer.h">
       <Filter>src\场景\游戏场景\地图层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Hero.h">
+      <Filter>src\场景\游戏场景\角色</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -13,5 +13,6 @@
  </layer>
  <objectgroup name="objects">
   <object name="hero" x="370.333" y="1614.67"/>
+  <object name="hero" x="330.667" y="1494.67"/>
  </objectgroup>
 </map>
