@@ -6,13 +6,25 @@
  <tileset firstgid="193" name="Outside_A4" tilewidth="48" tileheight="48">
   <image source="../img/Outside_A4.png" width="768" height="720"/>
  </tileset>
+ <tileset firstgid="433" name="collidable" tilewidth="48" tileheight="48">
+  <image source="collidable.png" width="48" height="48"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
  <layer name="background" width="20" height="40">
   <data encoding="base64" compression="zlib">
    eJzllEEOgDAIBNs36A80Hvii/kAfLecmFbB0i/Ewt2Yadgk5pZSVbIa3vX0TMzv6FmbtPC8yn5oP1eHbf6L7kF15+nr/vzOH4LPs38lc4Hk1jOxEAzX2RYVD63vqiwpGZ1Tr3Wt3Wj2IeSPkhpz7b0j32PrWco/RtzsSUpaWXjRZfj3rG7lUF5A=
   </data>
  </layer>
  <objectgroup name="objects">
-  <object name="hero" x="370.333" y="1614.67"/>
   <object name="hero" x="330.667" y="1494.67"/>
  </objectgroup>
+ <layer name="collidable" width="20" height="40" opacity="0.5">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMJLARkYIHqzmjYJRMArIB6TkR2LUUtu84QoI+Z3UsKG2eYMNAAB+2A3p
+  </data>
+ </layer>
 </map>

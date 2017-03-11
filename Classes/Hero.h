@@ -11,6 +11,9 @@ public:
 	void run(int direction);
 	void stop();
 
+	bool isRun() { return m_is_run; }
+	int getDiretion() { return m_direction; }
+
 protected:
 	cocos2d::Sprite *m_sprite = nullptr;
 	int m_direction = 0;

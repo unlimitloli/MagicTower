@@ -15,6 +15,9 @@ bool Hero::init()
 
 	m_sprite = Sprite::createWithSpriteFrameName("chengying_1.png");
 	addChild(m_sprite);
+	
+	m_sprite->setAnchorPoint(Vec2::ZERO);
+	m_sprite->setPosition(Vec2::ZERO);
 
 	return true;
 }
@@ -37,7 +40,7 @@ void Hero::initAnimation()
 		animation->addSpriteFrame(frame3);
 		animation->addSpriteFrame(frame4);
 
-		animation->setDelayPerUnit(0.5f);
+		animation->setDelayPerUnit(0.3f);
 		animation->setLoops(-1);
 		animation->setRestoreOriginalFrame(true);
 

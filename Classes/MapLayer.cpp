@@ -8,10 +8,13 @@ bool MapLayer::init()
 	if (!Layer::init())
 		return false;
 
-	auto tiled = TMXTiledMap::create("tmx/map.tmx");
-	addChild(tiled);
+	m_tiled_map = TMXTiledMap::create("tmx/map.tmx");
+	addChild(m_tiled_map);
 
-	auto objects = tiled->objectGroupNamed("objects");
+	m_collidable_layer = m_tiled_map->layerNamed("collidable");
+	m_collidable_layer->setVisible(false);
+
+	auto objects = m_tiled_map->objectGroupNamed("objects");
 	auto heroPoint = objects->objectNamed("hero");
 
 	m_hero = Hero::create();
@@ -35,5 +38,57 @@ bool MapLayer::init()
 	menu->setPosition(Vec2::ZERO);
 	addChild(menu);
 
+	scheduleUpdate();
+
 	return true;
+}
+
+void MapLayer::update(float dt)
+{
+	if (m_hero->isRun())
+	{
+		int diretcion = m_hero->getDiretion();
+		float dx = 0.0f;
+		float dy = 0.0f;
+		float speed = 60.0f;
+		switch (diretcion)
+		{
+		case 0:
+			dy = -speed * dt;
+			break;
+		case 1:
+			dx = -speed * dt;
+			break;
+		case 2:
+			dx = speed * dt;
+			break;
+		case 3:
+			dy = speed * dt;
+		}
+
+		Vec2 pos = m_hero->getPosition();
+		Vec2 new_pos = pos + Vec2(dx, dy);
+
+		int gid = m_collidable_layer->getTileGIDAt(transformPoint(new_pos));
+		if (gid != 0)
+		{
+			auto properiteDist = m_tiled_map->getPropertiesForGID(gid).asValueMap();
+			if (properiteDist["collidable"].asBool())
+				return;
+		}
+		m_hero->setPosition(pos + Vec2(dx, dy));
+		//Vec2 pos = m_tiled_map->getPosition();
+		//m_tiled_map->setPosition(pos - Vec2(dx, dy));
+	}
+}
+
+cocos2d::Vec2 MapLayer::transformPoint(const cocos2d::Vec2 & pos)
+{
+	Size map_size = m_tiled_map->getMapSize();
+	Size item_size = m_tiled_map->getTileSize();
+
+	int x = pos.x / item_size.width;
+	int y = pos.y / item_size.height;
+
+	return cocos2d::Vec2(x, map_size.height - y - 1);
 }
